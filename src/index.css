@@ -3,11 +3,11 @@
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: purple;
+  --color-primary: violet;
   --color-secondary: teal;
 }
-a.active{
-    @apply text-green-600
-    
+a.active {
+  @apply text-purple-600
+    border-b 
+rounded-none;
 }
-
