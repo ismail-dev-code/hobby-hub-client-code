@@ -4,8 +4,11 @@ import FeaturedGroups from "../components/home/FeaturedGroups";
 import OurTeam from "../components/home/OurTeam";
 import Total from "../components/home/Total";
 import NewsLetter from "../components/home/NewsLetter";
+import { useLoaderData } from "react-router";
 
 const Home = () => {
+  const groupData = useLoaderData();
+  console.log(groupData);
   return (
     <>
       <Slider/>

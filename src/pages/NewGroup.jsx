@@ -1,11 +1,12 @@
-import React from 'react';
+import React from "react";
+import AddGroup from "../components/allGroup/AddGroup";
 
 const NewGroup = () => {
-    return (
-        <div>
-            new group
-        </div>
-    );
+  return (
+    <>
+      <AddGroup></AddGroup>
+    </>
+  );
 };
 
 export default NewGroup;
