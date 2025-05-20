@@ -7,6 +7,7 @@ import Register from "../pages/Register";
 import MyGroup from "../pages/MyGroup";
 import NewGroup from "../pages/NewGroup";
 import ErrorPage from "../pages/ErrorPage";
+import PrivateRoute from "../provider/PrivateRoute";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -22,11 +23,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "/create-group",
-        element: <NewGroup></NewGroup>,
+        element: (
+          <PrivateRoute>
+            <NewGroup></NewGroup>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/my-group",
-        element: <MyGroup></MyGroup>,
+        element: (
+          <PrivateRoute>
+            <MyGroup></MyGroup>
+          </PrivateRoute>
+        ),
       },
     ],
   },

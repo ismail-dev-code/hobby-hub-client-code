@@ -1,7 +1,54 @@
-import React from "react";
+import React, { use, useState } from "react";
 import loginImg from "../assets/hobby-logo.png";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { AuthContext } from "../provider/AuthProvider";
+import { toast } from "react-toastify";
 const Register = () => {
+  const { createUser, setUser, updateUser } = use(AuthContext);
+  const [nameError, setNameError] = useState("");
+  const navigate = useNavigate();
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    if (name.length < 5) {
+      setNameError("Name should be more than 5 characters.");
+      return;
+    } else {
+      setNameError("");
+    }
+
+    const photo = form.photo.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    if (!passwordRegex.test(password)) {
+      toast.warning(
+        "Password must include at least one uppercase letter, one lowercase letter, and be a minimum of 6 characters in length."
+      );
+      return;
+    }
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        updateUser({ displayName: name, photoURL: photo })
+          .then(() => {
+            setUser({ ...user, displayName: name, photoURL: photo });
+
+            navigate("/");
+          })
+          .catch((error) => {
+            setUser(error);
+          });
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        toast.error(errorMessage);
+      });
+  };
+
   return (
     <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md border border-gray-200 shadow-md px-4 py-4 sm:p-8 rounded-xl dark:bg-gray-50 dark:text-gray-800">
@@ -10,7 +57,7 @@ const Register = () => {
           Register to HobbyHub
         </h1>
 
-        <form className="space-y-4 mb-0">
+        <form onSubmit={handleRegister} className="space-y-4 mb-0">
           <div className="space-y-2 text-sm">
             <label htmlFor="name" className="block dark:text-gray-600">
               Name
@@ -59,6 +106,7 @@ const Register = () => {
           >
             Register
           </button>
+          {nameError ? <p className="text-red-500 text-center">{nameError}</p> : ""}
         </form>
 
         <p className="text-sm text-center pt-2 text-gray-600">

@@ -1,8 +1,54 @@
 import React from "react";
-import { Link } from "react-router";
+
 import loginImg from "../assets/hobby-logo.png";
+import { useContext, useState } from "react";
+
+import { Link, useLocation, useNavigate } from "react-router";
+import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
+import { toast } from "react-toastify";
 
 const Login = () => {
+  const [error, setError] = useState("");
+
+  const { signIn, signInWithGoogle } = useContext(AuthContext);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+  const handleLogIn = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    signIn(email, password)
+      .then(() => {
+        // const user = result.user;
+
+        Swal.fire({
+          title: "Log in Successfully",
+          icon: "success",
+          showConfirmButton: true,
+          timer: 3000,
+        });
+        navigate(location.state ? location.state : "/");
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
+
+  const handleGoogleLogin = () => {
+    signInWithGoogle()
+      .then(() => {
+        navigate(location.state ? location.state : "/");
+      })
+      .catch((error) => toast.error(error.message));
+  };
+
   return (
     <div className="flex items-center min-h-screen justify-center  px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md p-6 border border-gray-200 shadow-md sm:p-6 rounded-xl dark:bg-gray-50 dark:text-gray-800">
@@ -11,7 +57,7 @@ const Login = () => {
           Login to HobbyHub
         </h1>
 
-        <form className="space-y-4 mb-0">
+        <form onSubmit={handleLogIn} className="space-y-4 mb-0">
           <div className="space-y-2 text-sm">
             <label htmlFor="name" className="block dark:text-gray-600">
               Email
@@ -35,7 +81,6 @@ const Login = () => {
               placeholder="Password"
               className="w-full px-4 py-3 rounded-md border border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:outline-none focus:ring-2 focus:ring-violet-500"
             />
-          
           </div>
 
           <button
@@ -44,6 +89,7 @@ const Login = () => {
           >
             Log in
           </button>
+          {error ? <p className="text-red-500 text-center">{error}</p> : ""}
         </form>
 
         <div className="flex items-center pt-4 space-x-2">
@@ -54,7 +100,10 @@ const Login = () => {
 
         <div className="flex justify-center my-3">
           {/* Google log in */}
-          <button className="btn bg-white text-black border-[#e5e5e5]">
+          <button
+            onClick={handleGoogleLogin}
+            className="btn bg-white text-black border-[#e5e5e5]"
+          >
             <svg
               aria-label="Google logo"
               width="16"
