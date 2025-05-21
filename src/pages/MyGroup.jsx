@@ -3,6 +3,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import Loading from "./Loading";
 import { FaEdit, FaInfoCircle } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import { Link } from "react-router";
 
 const MyGroup = () => {
   const { user } = useContext(AuthContext);
@@ -66,12 +67,12 @@ const MyGroup = () => {
                     size={25}
                   />
                 </button>
-                <button className=" rounded-full join-item">
+                <Link to={`/update-group/${group._id}`} className=" rounded-full join-item">
                   <FaEdit
                     className="text-purple-500 cursor-pointer"
                     size={25}
                   />
-                </button>
+                </Link>
                 <button className=" rounded-full join-item">
                   <MdDelete
                     className="text-purple-500 cursor-pointer"
