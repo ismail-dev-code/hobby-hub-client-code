@@ -8,6 +8,7 @@ import MyGroup from "../pages/MyGroup";
 import NewGroup from "../pages/NewGroup";
 import ErrorPage from "../pages/ErrorPage";
 import PrivateRoute from "../provider/PrivateRoute";
+import Loading from "../pages/Loading";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -15,11 +16,14 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: ()=> fetch("http://localhost:3000/create-group"),
+        hydrateFallbackElement: <Loading/>,
+        loader: ()=> fetch("http://localhost:3000/all-group"),
         element: <Home></Home>,
       },
       {
         path: "/all-groups",
+         hydrateFallbackElement: <Loading/>,
+        loader: ()=> fetch("http://localhost:3000/all-group"),
         element: <AllGroups></AllGroups>,
       },
       {

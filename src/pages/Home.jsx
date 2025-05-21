@@ -8,11 +8,12 @@ import { useLoaderData } from "react-router";
 
 const Home = () => {
   const groupData = useLoaderData();
-  console.log(groupData);
+  const sliceData = groupData.slice(0,6);
+  
   return (
     <>
       <Slider/>
-      <FeaturedGroups/>
+      <FeaturedGroups groupData={sliceData}/>
       <OurTeam/>
       <Total/>
       <NewsLetter/>

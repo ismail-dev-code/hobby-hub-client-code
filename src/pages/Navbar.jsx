@@ -9,7 +9,7 @@ import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
 const Navbar = () => {
   const { user, logOut } = use(AuthContext);
-  console.log(user);
+  // console.log(user);
 
   const handleLogOut = () => {
     logOut()
@@ -32,27 +32,9 @@ const Navbar = () => {
         <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
-        <details>
-          <summary>All Groups</summary>
-          <ul>
-            <li>
-              <NavLink to={"/books"} className="text-nowrap">
-                Book Clubs
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to={"/hiking"} className="text-nowrap">
-                {" "}
-                Hiking Crews
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to={"/painting"} className="text-nowrap">
-                Painting Circles
-              </NavLink>
-            </li>
-          </ul>
-        </details>
+        <NavLink to={"/all-groups"} className="text-nowrap">
+          All Groups
+        </NavLink>
       </li>
       <li>
         <NavLink to={"/create-group"}>Create Group</NavLink>
@@ -98,11 +80,16 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          <button onClick={handleLogOut} className="btn">
+          <button
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Click here to Logout"
+            data-tooltip-place="bottom"
+            onClick={handleLogOut}
+            className="btn"
+          >
             Logout
           </button>
         ) : (
-          
           <>
             {" "}
             <Link to={"/login"} className="btn mr-3">
