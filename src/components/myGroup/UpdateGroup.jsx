@@ -49,12 +49,12 @@ const UpdateGroup = () => {
         className="grid grid-cols-1 md:grid-cols-2 gap-6"
       >
         <input
+          required
           className="input"
           type="text"
           name="name"
           defaultValue={group.name}
           placeholder="Group Name"
-          required
         />
         <select
           className="select"
@@ -71,6 +71,7 @@ const UpdateGroup = () => {
           <option>Writing</option>
         </select>
         <input
+          required
           className="input"
           type="text"
           name="description"
@@ -78,6 +79,7 @@ const UpdateGroup = () => {
           placeholder="Description"
         />
         <input
+          required
           className="input"
           type="text"
           name="location"
@@ -85,6 +87,7 @@ const UpdateGroup = () => {
           placeholder="Meeting Location"
         />
         <input
+          required
           className="input"
           type="number"
           name="members"
@@ -92,6 +95,7 @@ const UpdateGroup = () => {
           placeholder="Max Members"
         />
         <input
+          required
           className="input"
           type="date"
           name="date"
@@ -99,6 +103,7 @@ const UpdateGroup = () => {
           placeholder="Start Date"
         />
         <input
+          required
           className="input"
           type="url"
           name="photo"
@@ -106,6 +111,7 @@ const UpdateGroup = () => {
           placeholder="Photo URL"
         />
         <input
+          required
           className="input"
           type="text"
           name="userName"
@@ -114,6 +120,7 @@ const UpdateGroup = () => {
           readOnly
         />
         <input
+          required
           className="input"
           type="email"
           name="userEmail"
@@ -126,7 +133,7 @@ const UpdateGroup = () => {
           <input
             type="submit"
             value="Update Group"
-            className="btn btn-primary w-full mt-4"
+            className="btn bg-violet-500 hover:bg-violet-600 text-white w-full mt-4"
           />
         </div>
       </form>

@@ -90,12 +90,12 @@ const MyGroup = () => {
               </td>
 
               <td className="join join-vertical space-y-3 p-2">
-                <button className=" rounded-full join-item">
+                <Link to={`/details-group/${group._id}`} className=" rounded-full join-item">
                   <FaInfoCircle
                     className="text-purple-500 cursor-pointer"
                     size={25}
                   />
-                </button>
+                </Link>
                 <Link
                   to={`/update-group/${group._id}`}
                   className=" rounded-full join-item"

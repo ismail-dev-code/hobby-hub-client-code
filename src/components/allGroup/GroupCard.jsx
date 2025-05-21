@@ -1,14 +1,11 @@
-import React from "react";
-import { FaEdit, FaInfoCircle } from "react-icons/fa";
-import { MdDelete } from "react-icons/md";
+import { Link } from "react-router";
 
 const GroupCard = ({ group }) => {
-//   console.log(group);
-  const { name, photo, category, date, members } = group;
+  const { _id, name, photo, category, date, members } = group;
   return (
-    <div className="card border border-gray-200 card-side bg-base-100 shadow-md">
+    <div className="card text-nowrap md:flex-row flex-col border border-gray-200 card-side bg-base-100 shadow-md">
       <figure>
-        <img className="w-44 h-44 rounded-lg p-2" src={photo} alt="photo" />
+        <img className="md:w-44 w-full md:h-44 rounded-lg p-2" src={photo} alt="photo" />
       </figure>
 
       <div className="ml-4 p-2 flex-1">
@@ -17,8 +14,13 @@ const GroupCard = ({ group }) => {
         <h2 className="mt-1">Members:{members}</h2>
         <p className="mt-1">Deadline: {date}</p>
       </div>
-      <div className="flex flex-1 h-full items-center justify-end pr-3">
-        <button className="btn bg-violet-500 text-white hover:bg-violet-600">See More</button>
+      <div className="flex flex-1 md:mt-17 h-full items-center ml-6 mb-3 md:justify-end pr-3">
+        <Link
+          to={`/details-group/${_id}`}
+          className="btn bg-violet-500 text-white hover:bg-violet-600"
+        >
+          See More
+        </Link>
       </div>
     </div>
   );

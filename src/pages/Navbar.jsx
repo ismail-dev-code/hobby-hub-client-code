@@ -5,8 +5,10 @@ import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { FaUserCircle } from "react-icons/fa";
 
 const MySwal = withReactContent(Swal);
+
 const Navbar = () => {
   const { user, logOut } = use(AuthContext);
   // console.log(user);
@@ -80,24 +82,53 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          <button
-            data-tooltip-id="my-tooltip"
-            data-tooltip-content="Click here to Logout"
-            data-tooltip-place="bottom"
-            onClick={handleLogOut}
-            className="btn"
-          >
-            Logout
-          </button>
+          <div className="dropdown dropdown-end">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar"
+            >
+              <div
+                data-tooltip-id="my-tooltip"
+                data-tooltip-content={user?.displayName}
+                className="w-10 rounded-full ring ring-violet-400 ring-offset-base-100 ring-offset-2"
+              >
+                {user?.photoURL ? (
+                  <img
+                    className="w-full h-full"
+                    src={user.photoURL}
+                    alt="user profile"
+                  />
+                ) : (
+                  <FaUserCircle className="w-full h-full" />
+                )}
+              </div>
+            </div>
+            <ul
+              tabIndex={0}
+              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+            >
+              <li className="text-center font-semibold py-1">
+                {user?.displayName || "User"}
+              </li>
+              <li>
+                <button
+                  onClick={handleLogOut}
+                  className="btn btn-sm btn-error text-white"
+                >
+                  Logout
+                </button>
+              </li>
+            </ul>
+          </div>
         ) : (
           <>
-            {" "}
             <Link to={"/login"} className="btn mr-3">
               Log in
             </Link>
             <Link to={"/register"} className="btn">
               Register
-            </Link>{" "}
+            </Link>
           </>
         )}
       </div>

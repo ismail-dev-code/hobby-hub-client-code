@@ -10,6 +10,7 @@ import ErrorPage from "../pages/ErrorPage";
 import PrivateRoute from "../provider/PrivateRoute";
 import Loading from "../pages/Loading";
 import UpdateGroup from "../components/myGroup/UpdateGroup";
+import GroupDetails from "../components/allGroup/GroupDetails";
 
 export const router = createBrowserRouter([
   {
@@ -49,6 +50,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <UpdateGroup />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/details-group/:id",
+        element: (
+          <PrivateRoute>
+            <GroupDetails/>
           </PrivateRoute>
         ),
       },

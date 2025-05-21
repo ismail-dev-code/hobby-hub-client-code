@@ -11,7 +11,7 @@ const AddGroup = () => {
     const formData = new FormData(form);
     const newGroup = Object.fromEntries(formData.entries());
 
-    // send to data to the db
+   
     fetch("http://localhost:3000/create-group", {
       method: "POST",
       headers: {
@@ -47,10 +47,11 @@ const AddGroup = () => {
 
       <form onSubmit={handleAddGroup} className="mt-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Form fields - unchanged structure */}
+          
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
             <label className="label">Group Name</label>
             <input
+              required
               type="text"
               name="name"
               className="input w-full"
@@ -73,6 +74,7 @@ const AddGroup = () => {
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
             <label className="label">Description</label>
             <input
+              required
               type="text"
               name="description"
               className="input w-full"
@@ -82,6 +84,7 @@ const AddGroup = () => {
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
             <label className="label">Meeting Location</label>
             <input
+              required
               type="text"
               name="location"
               className="input w-full"
@@ -91,6 +94,7 @@ const AddGroup = () => {
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
             <label className="label">Max Members</label>
             <input
+              required
               type="number"
               name="members"
               className="input w-full"
@@ -100,6 +104,7 @@ const AddGroup = () => {
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
             <label className="label">Start Date</label>
             <input
+              required
               type="date"
               name="date"
               className="input w-full"
@@ -108,10 +113,11 @@ const AddGroup = () => {
           </fieldset>
         </div>
 
-        {/* Other fields */}
+        
         <fieldset className="fieldset my-6 bg-base-200 border-base-300 rounded-box border p-4">
           <label className="label">Photo</label>
           <input
+            required
             type="url"
             name="photo"
             className="input w-full"
@@ -121,6 +127,7 @@ const AddGroup = () => {
         <fieldset className="fieldset my-6 bg-base-200 border-base-300 rounded-box border p-4">
           <label className="label">User Name</label>
           <input
+            required
             value={user?.displayName}
             type="text"
             name="userName"
@@ -131,6 +138,7 @@ const AddGroup = () => {
         <fieldset className="fieldset my-6 bg-base-200 border-base-300 rounded-box border p-4">
           <label className="label">User Email</label>
           <input
+            required
             value={user?.email}
             type="email"
             name="userEmail"
@@ -141,7 +149,7 @@ const AddGroup = () => {
 
         <input
           type="submit"
-          className="btn text-white btn-primary w-full mt-4"
+          className="btn bg-violet-500 hover:bg-violet-600 text-white w-full mt-4"
           value="Create Group"
         />
       </form>
