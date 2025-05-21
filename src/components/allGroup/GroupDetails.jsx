@@ -45,12 +45,12 @@ const GroupDetails = () => {
   return (
     <div className="my-12 w-full">
       <Fade
-        delay={50} // Wait 200ms before starting
-        duration={1000} // Animation lasts 1 second
-        triggerOnce // Only animate once
+        delay={50} 
+        duration={1000} 
+        triggerOnce 
         fraction={0.5}
       >
-        <div className="max-w-2xl mx-auto border border-gray-200 rounded-lg shadow-lg p-6 bg-white">
+        <div className="max-w-2xl mx-auto border border-gray-200 rounded-lg shadow-lg p-6">
           <figure className="flex justify-center mb-4">
             <img
               className="rounded-lg w-72 h-72 object-cover"

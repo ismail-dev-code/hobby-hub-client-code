@@ -1,17 +1,37 @@
-import React, { use } from "react";
+import React, { use, useEffect, useState } from "react";
 import logoNav from "../assets/hobby-logo.png";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { FaUserCircle } from "react-icons/fa";
+import { FaMoon, FaSun, FaUserCircle } from "react-icons/fa";
 
 const MySwal = withReactContent(Swal);
 
 const Navbar = () => {
   const { user, logOut } = use(AuthContext);
-  // console.log(user);
+
+  const [isDark, setIsDark] = useState(() => {
+    // load saved theme from localStorage
+    return localStorage.getItem("theme") === "dark";
+  });
+
+  useEffect(() => {
+  const root = document.documentElement;
+
+  if (isDark) {
+    root.classList.add("dark");
+    root.setAttribute("data-theme", "dark"); 
+    localStorage.setItem("theme", "dark");
+  } else {
+    root.classList.remove("dark");
+    root.setAttribute("data-theme", "light"); 
+    localStorage.setItem("theme", "light");
+  }
+}, [isDark]);
+
+  const toggleTheme = () => setIsDark(!isDark);
 
   const handleLogOut = () => {
     logOut()
@@ -131,6 +151,13 @@ const Navbar = () => {
             </Link>
           </>
         )}
+        <button
+          onClick={toggleTheme}
+          className="btn btn-circle mx-2 md:mx-3"
+          title="Toggle Theme"
+        >
+          {isDark ? <FaSun className="text-yellow-400" /> : <FaMoon />}
+        </button>
       </div>
     </div>
   );

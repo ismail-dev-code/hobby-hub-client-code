@@ -10,8 +10,8 @@ const FeaturedGroups = ({ groupData }) => {
       <Fade delay={50} duration={1000} triggerOnce fraction={0.5}>
         <h1 className="text-center text-3xl mt-10 font-bold ">Featured Spot</h1>
       </Fade>
-      <div className="flex-1 h-px w-1/8 mx-auto bg-gray-300 animate-ping"></div>
-      <p className="text-center pt-2 text-gray-500">
+      <div className="flex-1 h-px w-1/8 mx-auto  animate-ping"></div>
+      <p className="text-center pt-2 ">
         Discover a wide range of hobbies — from art and travel to tech and
         wellness. Find your passion and connect with like-minded enthusiasts.
       </p>

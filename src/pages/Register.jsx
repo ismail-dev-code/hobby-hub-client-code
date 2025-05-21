@@ -63,6 +63,7 @@ const Register = () => {
               Name
             </label>
             <input
+              required
               type="text"
               name="name"
               placeholder="Your Name"
@@ -72,6 +73,7 @@ const Register = () => {
               Email
             </label>
             <input
+              required
               type="email"
               name="email"
               placeholder="Your Email"
@@ -81,6 +83,7 @@ const Register = () => {
               Photo URL
             </label>
             <input
+              required
               type="url"
               name="photo"
               id="photo"
@@ -92,6 +95,7 @@ const Register = () => {
               Password
             </label>
             <input
+              required
               type="password"
               name="password"
               id="password"
@@ -106,7 +110,11 @@ const Register = () => {
           >
             Register
           </button>
-          {nameError ? <p className="text-red-500 text-center">{nameError}</p> : ""}
+          {nameError ? (
+            <p className="text-red-500 text-center">{nameError}</p>
+          ) : (
+            ""
+          )}
         </form>
 
         <p className="text-sm text-center pt-2 text-gray-600">

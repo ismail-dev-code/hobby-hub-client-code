@@ -66,6 +66,7 @@ const Login = () => {
               type="email"
               name="email"
               placeholder="Your Email"
+              required
               className="w-full px-4 py-3 rounded-md border border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:outline-none focus:ring-2 focus:ring-violet-500"
             />
           </div>
@@ -79,6 +80,7 @@ const Login = () => {
               name="password"
               id="password"
               placeholder="Password"
+              required
               className="w-full px-4 py-3 rounded-md border border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:outline-none focus:ring-2 focus:ring-violet-500"
             />
           </div>

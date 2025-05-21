@@ -2,7 +2,7 @@ import React from 'react';
 
 const NewsLetter = () => {
   return (
-    <div className="flex flex-col md:flex-row gap-6 justify-between border border-gray-200 shadow-md mb-10 bg-white rounded-lg py-10 px-6 md:py-16 md:px-10">
+    <div className="flex flex-col md:flex-row gap-6 justify-between border border-gray-200 shadow-md mb-10 rounded-lg py-10 px-6 md:py-16 md:px-10">
       <div className="title flex-1 text-center md:text-left">
         <h2 className="text-lg md:text-xl font-bold">News Letter</h2>
         <h1 className="text-2xl md:text-4xl font-bold">Get Regular Update</h1>
