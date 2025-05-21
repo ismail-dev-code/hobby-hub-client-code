@@ -4,6 +4,7 @@ import Loading from "./Loading";
 import { FaEdit, FaInfoCircle } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { Link } from "react-router";
+import Swal from "sweetalert2";
 
 const MyGroup = () => {
   const { user } = useContext(AuthContext);
@@ -24,7 +25,35 @@ const MyGroup = () => {
   if (loading) return <Loading></Loading>;
 
   if (groups.length === 0)
-    return <p className="text-center mt-12">No groups found for you.</p>;
+    return (
+      <p className="text-center mt-12">You did not create any group yet.</p>
+    );
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3000/all-group/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              setGroups((prevGroups) =>
+                prevGroups.filter((group) => group._id !== id)
+              );
+              Swal.fire("Deleted!", "Your group has been deleted.", "success");
+            }
+          });
+      }
+    });
+  };
 
   return (
     <div className="px-4 sm:px-6 md:px-12 lg:px-24 py-12 overflow-x-auto">
@@ -67,13 +96,19 @@ const MyGroup = () => {
                     size={25}
                   />
                 </button>
-                <Link to={`/update-group/${group._id}`} className=" rounded-full join-item">
+                <Link
+                  to={`/update-group/${group._id}`}
+                  className=" rounded-full join-item"
+                >
                   <FaEdit
                     className="text-purple-500 cursor-pointer"
                     size={25}
                   />
                 </Link>
-                <button className=" rounded-full join-item">
+                <button
+                  onClick={() => handleDelete(group._id)}
+                  className="rounded-full join-item"
+                >
                   <MdDelete
                     className="text-purple-500 cursor-pointer"
                     size={25}
