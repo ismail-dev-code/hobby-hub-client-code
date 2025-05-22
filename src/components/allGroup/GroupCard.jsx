@@ -9,7 +9,7 @@ const GroupCard = ({ group }) => {
       </figure>
 
       <div className="ml-4 p-2 flex-1">
-        <h2 className="card-title text-xl">{name}</h2>
+        <h2 className="card-title text-xl capitalize">{name}</h2>
         <h2 className="mt-2">Category: {category}</h2>
         <h2 className="mt-1">Members:{members}</h2>
         <p className="mt-1">Deadline: {date}</p>

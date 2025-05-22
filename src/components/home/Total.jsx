@@ -1,9 +1,8 @@
-import React from "react";
 import CountUp from "react-countup";
 import { FaCommentDots, FaHandshake } from "react-icons/fa";
 import { GiTrophyCup } from "react-icons/gi";
 import { GrUserWorker } from "react-icons/gr";
-import { MdRateReview } from "react-icons/md";
+
 
 const Total = () => {
   return (
@@ -19,21 +18,21 @@ const Total = () => {
         <div className="border border-gray-200 shadow-lg flex flex-col justify-start rounded-md p-6">
           <FaHandshake className="text-violet-500" size={35} />
           <h1 className="text-3xl font-bold py-1.5">
-            <CountUp end={2500} duration={99.75} suffix=" +" />
+            <CountUp end={2500} duration={50} suffix=" +" />
           </h1>
           <p className="text-gray-600">Happy Clients</p>
         </div>
         <div className="border border-gray-200 shadow-lg flex flex-col justify-start rounded-md p-6">
           <GiTrophyCup className="text-violet-500" size={35} />
           <h1 className="text-3xl font-bold py-1.5">
-            <CountUp end={500} duration={44.75} suffix=" +" />
+            <CountUp end={500} suffix=" +" />
           </h1>
           <p className="text-gray-600">Award Win</p>
         </div>
         <div className="border border-gray-200 shadow-lg flex flex-col justify-start rounded-md p-6">
           <GrUserWorker className="text-violet-500" size={35} />
           <h1 className="text-3xl font-bold py-1.5">
-            <CountUp end={100} duration={33.75} suffix=" +" />
+            <CountUp end={100} suffix=" +" />
           </h1>
           <p className="text-gray-600">Active Worker</p>
         </div>
