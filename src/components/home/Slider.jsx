@@ -1,33 +1,35 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
-import slider1 from '../../assets/slider-1one.webp';
-import slider2 from '../../assets/slider-twos.webp';
-import slider3 from '../../assets/slider2thre.webp';
-import { Link } from 'react-router';
+import slider1 from "../../assets/slider-1one.webp";
+import slider2 from "../../assets/slider-twos.webp";
+import slider3 from "../../assets/slider2thre.webp";
+import { Link } from "react-router";
 
 const sliderData = [
   {
     image: slider1,
-    title: 'Create Your Favorite Hobbies',
-    description: 'I love photography, traveling to new places, reading inspiring books, coding creative projects, and enjoying peaceful music in my free time.',
-    buttonText: 'Create Hobbies',
+    title: "Create Your Favorite Hobbies",
+    description:
+      "I love photography, traveling to new places, reading inspiring books, coding creative projects, and enjoying peaceful music in my free time.",
+    buttonText: "Create Hobbies",
   },
   {
     image: slider2,
-    title: 'Discover New Adventures',
-    description: 'Travel the world, meet new people, and gather experiences that will last a lifetime. Adventure is calling!',
-    buttonText: 'Discover Now',
+    title: "Discover New Adventures",
+    description:
+      "Travel the world, meet new people, and gather experiences that will last a lifetime. Adventure is calling!",
+    buttonText: "Discover Now",
   },
   {
     image: slider3,
-    title: 'Build Your Creative Group',
-    description: 'Turn your free time into a journey of learning and creativity. Start building your own hobby world today.',
-    buttonText: 'Create Group',
+    title: "Build Your Creative Group",
+    description:
+      "Turn your free time into a journey of learning and creativity. Start building your own hobby world today.",
+    buttonText: "Create Group",
   },
 ];
 
@@ -51,10 +53,9 @@ const Slider = () => {
                 src={slide.image}
                 alt={`Slide ${index + 1}`}
               />
-             
+
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-100"></div>
 
-            
               <div className="absolute bottom-6 sm:bottom-10 md:bottom-16 lg:bottom-28 left-4 sm:left-6 md:left-16 z-10 text-white space-y-1.5 md:space-y-3 max-w-md sm:max-w-lg md:max-w-xl">
                 <h2 className="text-xl sm:text-2xl md:text-4xl font-bold">
                   {slide.title}

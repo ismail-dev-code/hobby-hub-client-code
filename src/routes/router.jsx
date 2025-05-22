@@ -20,13 +20,15 @@ export const router = createBrowserRouter([
       {
         index: true,
         hydrateFallbackElement: <Loading />,
-        loader: () => fetch("https://hobby-hub-server-pied.vercel.app/all-group"),
+        loader: () =>
+          fetch("https://hobby-hub-server-pied.vercel.app/all-group"),
         element: <Home></Home>,
       },
       {
         path: "/all-groups",
         hydrateFallbackElement: <Loading />,
-        loader: () => fetch("https://hobby-hub-server-pied.vercel.app/all-group"),
+        loader: () =>
+          fetch("https://hobby-hub-server-pied.vercel.app/all-group"),
         element: <AllGroups></AllGroups>,
       },
       {
@@ -57,7 +59,7 @@ export const router = createBrowserRouter([
         path: "/details-group/:id",
         element: (
           <PrivateRoute>
-            <GroupDetails/>
+            <GroupDetails />
           </PrivateRoute>
         ),
       },

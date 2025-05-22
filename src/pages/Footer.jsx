@@ -1,4 +1,3 @@
-import React from "react";
 import footerLogo from "../assets/hobby-logo.png";
 import { Link } from "react-router";
 import { FaFacebook, FaGithub, FaInstagram } from "react-icons/fa";
@@ -12,10 +11,10 @@ const Footer = () => {
           <aside>
             <img className="w-34 h-14" src={footerLogo} alt="" />
             <h2 className="text-lg font-bold">
-            Hobby Hub <br />
-            
-             <span className="text-xs font-normal ">Where creativity finds its home.
-             </span>
+              Hobby Hub <br />
+              <span className="text-xs font-normal ">
+                Where creativity finds its home.
+              </span>
             </h2>
           </aside>
           <nav>
@@ -81,7 +80,6 @@ const Footer = () => {
             </small>
           </p>
         </div>
-        
       </div>
     </>
   );

@@ -1,10 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import Loading from "./Loading";
 import { FaEdit, FaInfoCircle } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const MyGroup = () => {
   const { user } = useContext(AuthContext);
@@ -13,7 +14,9 @@ const MyGroup = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`https://hobby-hub-server-pied.vercel.app/my-groups?email=${user.email}`)
+      fetch(
+        `https://hobby-hub-server-pied.vercel.app/my-groups?email=${user.email}`
+      )
         .then((res) => res.json())
         .then((data) => {
           setGroups(data);
@@ -26,7 +29,21 @@ const MyGroup = () => {
 
   if (groups.length === 0)
     return (
-      <p className="text-center w-2/6 mx-auto mt-12"> You haven’t created any groups yet. Start by creating one to organize your hobbies!</p>
+      <>
+        <div className="w-6/8 mx-auto text-center px-5 mt-12 md:mt-24">
+          <p className="pb-4">
+            You haven’t created any groups yet. Start by creating one to
+            organize your hobbies!
+          </p>
+
+          <Link
+            to="/create-group"
+            className="btn btn-sm sm:btn-md md:btn-lg bg-violet-600 hover:bg-violet-700 text-white rounded-full px-4 py-2 border-none"
+          >
+            Create Group
+          </Link>
+        </div>
+      </>
     );
   const handleDelete = (id) => {
     Swal.fire({
@@ -56,85 +73,90 @@ const MyGroup = () => {
   };
 
   return (
-    <div className="px-4 sm:px-6 md:px-12 lg:px-24 py-12 overflow-x-auto">
-      <h2 className="text-3xl font-bold text-center mb-8">My Groups</h2>
+    <>
+      <Helmet>
+        <title>HobbyHub | My Group</title>
+      </Helmet>
+      <div className="px-4 sm:px-6 md:px-12 lg:px-24 py-12 overflow-x-auto">
+        <h2 className="text-3xl font-bold text-center mb-8">My Groups</h2>
 
-      <table className="table table-zebra w-full border border-base-300 rounded-lg">
-        <thead className="bg-base-200 text-base">
-          <tr className="text-center">
-            <th>No.</th>
-            <th>Group Name</th>
-            <th>Category</th>
-            <th>Location</th>
-            <th>Date</th>
-            <th>Max Members</th>
-            <th>Photo</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody className="text-center">
-          {groups.map((group, index) => (
-            <tr key={group._id}>
-              <td>{index + 1}</td>
-              <td className="font-semibold text-nowrap">{group.name}</td>
-              <td>{group.category}</td>
-              <td>{group.location}</td>
-              <td className="text-nowrap">{group.date}</td>
-              <td>{group.members}</td>
-              <td>
-                <img
-                  src={group.photo}
-                  alt={group.name}
-                  className="w-16 h-16 object-cover rounded-md"
-                />
-              </td>
-
-              <td className="join join-vertical space-y-3 p-2">
-                <Link
-                  to={`/details-group/${group._id}`}
-                  className=" rounded-full join-item"
-                  data-tooltip-id="my-tooltip"
-                  data-tooltip-content={"See More Info"}
-                  data-tooltip-place="right"
-                  data-tooltip-class-name="z-50"
-                >
-                  <FaInfoCircle
-                    className="text-purple-500 cursor-pointer"
-                    size={18}
-                  />
-                </Link>
-                <Link
-                  to={`/update-group/${group._id}`}
-                  className=" rounded-full join-item"
-                  data-tooltip-id="my-tooltip"
-                  data-tooltip-content={"Edit Group"}
-                  data-tooltip-place="right"
-                  data-tooltip-class-name="z-50"
-                >
-                  <FaEdit
-                    className="text-purple-500 cursor-pointer"
-                    size={18}
-                  />
-                </Link>
-                <button
-                  onClick={() => handleDelete(group._id)}
-                  className="rounded-full join-item"
-                  data-tooltip-id="my-tooltip"
-                  data-tooltip-content={"Delete Group"}
-                  data-tooltip-place="right"
-                  data-tooltip-class-name="z-50"
-                >
-                  <MdDelete
-                    className="text-purple-500 cursor-pointer"
-                    size={18}
-                  />
-                </button>
-              </td>
+        <table className="table table-zebra w-full border border-base-300 rounded-lg">
+          <thead className="bg-base-200 text-base">
+            <tr className="text-center">
+              <th>No.</th>
+              <th>Group Name</th>
+              <th>Category</th>
+              <th>Location</th>
+              <th>Date</th>
+              <th>Max Members</th>
+              <th>Photo</th>
+              <th>Action</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody className="text-center">
+            {groups.map((group, index) => (
+              <tr key={group._id}>
+                <td>{index + 1}</td>
+                <td className="font-semibold text-nowrap">{group.name}</td>
+                <td>{group.category}</td>
+                <td>{group.location}</td>
+                <td className="text-nowrap">{group.date}</td>
+                <td>{group.members}</td>
+                <td>
+                  <img
+                    src={group.photo}
+                    alt={group.name}
+                    className="w-16 h-16 object-cover rounded-md"
+                  />
+                </td>
+
+                <td className="join join-vertical space-y-3 p-2">
+                  <Link
+                    to={`/details-group/${group._id}`}
+                    className=" rounded-full join-item"
+                    data-tooltip-id="my-tooltip"
+                    data-tooltip-content={"See More Info"}
+                    data-tooltip-place="right"
+                    data-tooltip-class-name="z-50"
+                  >
+                    <FaInfoCircle
+                      className="text-purple-500 cursor-pointer"
+                      size={18}
+                    />
+                  </Link>
+                  <Link
+                    to={`/update-group/${group._id}`}
+                    className=" rounded-full join-item"
+                    data-tooltip-id="my-tooltip"
+                    data-tooltip-content={"Edit Group"}
+                    data-tooltip-place="right"
+                    data-tooltip-class-name="z-50"
+                  >
+                    <FaEdit
+                      className="text-purple-500 cursor-pointer"
+                      size={18}
+                    />
+                  </Link>
+                  <button
+                    onClick={() => handleDelete(group._id)}
+                    className="rounded-full join-item"
+                    data-tooltip-id="my-tooltip"
+                    data-tooltip-content={"Delete Group"}
+                    data-tooltip-place="right"
+                    data-tooltip-class-name="z-50"
+                  >
+                    <MdDelete
+                      className="text-purple-500 cursor-pointer"
+                      size={18}
+                    />
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 };
 

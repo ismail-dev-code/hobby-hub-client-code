@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 
 @import "tailwindcss";
 @plugin "daisyui" {
-   themes: light --default, dark --prefersdark;
+  themes: light --default, dark --prefersdark;
 }
 @plugin "daisyui/theme" {
   name: "light";
@@ -16,7 +16,6 @@ a.active {
 rounded-none;
 }
 
-*{
+* {
   font-family: "Manrope", sans-serif;
 }
-

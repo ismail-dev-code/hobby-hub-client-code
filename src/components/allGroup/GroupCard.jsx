@@ -5,7 +5,11 @@ const GroupCard = ({ group }) => {
   return (
     <div className="card text-nowrap md:flex-row flex-col border border-gray-200 card-side shadow-md mx-5">
       <figure>
-        <img className="md:w-44 w-full md:h-44 rounded-lg p-2" src={photo} alt="photo" />
+        <img
+          className="md:w-44 w-full md:h-44 rounded-lg p-2"
+          src={photo}
+          alt="photo"
+        />
       </figure>
 
       <div className="ml-4 p-2 flex-1">

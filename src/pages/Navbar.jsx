@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import logoNav from "../assets/hobby-logo.png";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
@@ -13,23 +13,22 @@ const Navbar = () => {
   const { user, logOut } = use(AuthContext);
 
   const [isDark, setIsDark] = useState(() => {
-    // load saved theme from localStorage
     return localStorage.getItem("theme") === "dark";
   });
 
   useEffect(() => {
-  const root = document.documentElement;
+    const root = document.documentElement;
 
-  if (isDark) {
-    root.classList.add("dark");
-    root.setAttribute("data-theme", "dark"); 
-    localStorage.setItem("theme", "dark");
-  } else {
-    root.classList.remove("dark");
-    root.setAttribute("data-theme", "light"); 
-    localStorage.setItem("theme", "light");
-  }
-}, [isDark]);
+    if (isDark) {
+      root.classList.add("dark");
+      root.setAttribute("data-theme", "dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      root.classList.remove("dark");
+      root.setAttribute("data-theme", "light");
+      localStorage.setItem("theme", "light");
+    }
+  }, [isDark]);
 
   const toggleTheme = () => setIsDark(!isDark);
 

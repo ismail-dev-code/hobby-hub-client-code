@@ -1,9 +1,9 @@
-import React, { use } from "react";
+import { use } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 const AddGroup = () => {
   const { user } = use(AuthContext);
-  console.log(user);
 
   const handleAddGroup = (e) => {
     e.preventDefault();
@@ -11,7 +11,6 @@ const AddGroup = () => {
     const formData = new FormData(form);
     const newGroup = Object.fromEntries(formData.entries());
 
-   
     fetch("https://hobby-hub-server-pied.vercel.app/create-group", {
       method: "POST",
       headers: {
@@ -33,6 +32,10 @@ const AddGroup = () => {
   };
 
   return (
+    <>
+    <Helmet>
+        <title>HobbyHub | Create Group</title>
+      </Helmet>
     <div className="px-4 sm:px-6 md:px-12 lg:px-24 py-12">
       <div className="text-center px-2 sm:px-4 md:px-8 lg:px-12 space-y-4">
         <h1 className="text-2xl sm:text-5xl md:text-4xl font-bold">
@@ -41,13 +44,12 @@ const AddGroup = () => {
         <p className="text-base sm:text-lg text-gray-600 mt-2 sm:mt-4">
           Use the form below to add a new group to the collection. Fill in the
           details like Group Name, Hobby Category, Description, Meeting
-          Location, Max Members, Start Date, image URL, User Name, User Email.
+          Location, Max Members, End Date and image URL.
         </p>
       </div>
 
       <form onSubmit={handleAddGroup} className="mt-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
             <label className="label">Group Name</label>
             <input
@@ -102,7 +104,7 @@ const AddGroup = () => {
             />
           </fieldset>
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
-            <label className="label">Start Date</label>
+            <label className="label">End Date</label>
             <input
               required
               type="date"
@@ -113,7 +115,6 @@ const AddGroup = () => {
           </fieldset>
         </div>
 
-        
         <fieldset className="fieldset my-6 bg-base-200 border-base-300 rounded-box border p-4">
           <label className="label">Photo</label>
           <input
@@ -154,6 +155,7 @@ const AddGroup = () => {
         />
       </form>
     </div>
+    </>
   );
 };
 
