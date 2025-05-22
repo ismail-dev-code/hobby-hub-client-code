@@ -22,10 +22,10 @@ const OurTeam = () => {
                 class="mx-auto mb-4 w-36 h-36 rounded-full"
                 src={team.image}
               />
-              <h3 class="mb-1 text-2xl font-bold tracking-tight">
-                <h1>{team.name}</h1>
+              <h3 class="mb-1 text-xl font-bold tracking-tight">
+                {team.name}
               </h3>
-              <p>{team.position}</p>
+              <p className="text-sm">{team.position}</p>
               <ul class="flex justify-center mt-4 space-x-4">
                 {team.icons.map((icon) => (
                   <li>

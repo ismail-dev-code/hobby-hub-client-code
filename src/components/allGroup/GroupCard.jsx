@@ -3,7 +3,7 @@ import { Link } from "react-router";
 const GroupCard = ({ group }) => {
   const { _id, name, photo, category, date, members } = group;
   return (
-    <div className="card text-nowrap md:flex-row flex-col border border-gray-200 card-side shadow-md">
+    <div className="card text-nowrap md:flex-row flex-col border border-gray-200 card-side shadow-md mx-5">
       <figure>
         <img className="md:w-44 w-full md:h-44 rounded-lg p-2" src={photo} alt="photo" />
       </figure>

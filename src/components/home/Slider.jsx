@@ -51,10 +51,10 @@ const Slider = () => {
                 src={slide.image}
                 alt={`Slide ${index + 1}`}
               />
-              {/* Gradient Overlay */}
+             
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-100"></div>
 
-              {/* Text Content */}
+            
               <div className="absolute bottom-6 sm:bottom-10 md:bottom-16 lg:bottom-28 left-4 sm:left-6 md:left-16 z-10 text-white space-y-1.5 md:space-y-3 max-w-md sm:max-w-lg md:max-w-xl">
                 <h2 className="text-xl sm:text-2xl md:text-4xl font-bold">
                   {slide.title}
@@ -64,7 +64,7 @@ const Slider = () => {
                 </p>
                 <Link
                   to="/create-group"
-                  className="btn btn-sm sm:btn-md md:btn-lg bg-violet-600 hover:bg-violet-700 text-white rounded-full px-4 py-2"
+                  className="btn btn-sm sm:btn-md md:btn-lg bg-violet-600 hover:bg-violet-700 text-white rounded-full px-4 py-2 border-none"
                 >
                   {slide.buttonText}
                 </Link>

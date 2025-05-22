@@ -12,7 +12,7 @@ const AddGroup = () => {
     const newGroup = Object.fromEntries(formData.entries());
 
    
-    fetch("http://localhost:3000/create-group", {
+    fetch("https://hobby-hub-server-pied.vercel.app/create-group", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -10,7 +10,7 @@ const GroupDetails = () => {
   const [joined, setJoined] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/all-group/${id}`)
+    fetch(`https://hobby-hub-server-pied.vercel.app/all-group/${id}`)
       .then((res) => res.json())
       .then((data) => setGroup(data));
   }, [id]);
@@ -43,7 +43,7 @@ const GroupDetails = () => {
   const isExpired = groupDeadline < currentDate;
 
   return (
-    <div className="my-12 w-full">
+    <div className="my-12 px-2 w-full">
       <Fade
         delay={50} 
         duration={1000} 

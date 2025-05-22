@@ -13,7 +13,7 @@ const MyGroup = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/my-groups?email=${user.email}`)
+      fetch(`https://hobby-hub-server-pied.vercel.app/my-groups?email=${user.email}`)
         .then((res) => res.json())
         .then((data) => {
           setGroups(data);
@@ -26,12 +26,12 @@ const MyGroup = () => {
 
   if (groups.length === 0)
     return (
-      <p className="text-center mt-12">You did not create any group yet.</p>
+      <p className="text-center w-2/6 mx-auto mt-12"> You haven’t created any groups yet. Start by creating one to organize your hobbies!</p>
     );
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
-      text: "You won't be able to revert this!",
+      text: "This action is permanent and cannot be undone!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -39,7 +39,7 @@ const MyGroup = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/all-group/${id}`, {
+        fetch(`https://hobby-hub-server-pied.vercel.app/all-group/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

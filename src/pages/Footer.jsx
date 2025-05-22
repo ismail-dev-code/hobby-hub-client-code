@@ -8,15 +8,15 @@ const Footer = () => {
   return (
     <>
       <div className="bg-base-200">
-        <div className="footer sm:footer-horizontal text-base-content px-6 md:px-10 md:pt-30 pt-10">
+        <div className="footer sm:footer-horizontal text-base-content px-6 md:px-10 md:pt-10 pt-10">
           <aside>
             <img className="w-34 h-14" src={footerLogo} alt="" />
-            <p>
-              <span className="text-lg font-bold">Hobby Hub</span>
-              <br />
-              Where creativity finds its home. <br />
-              Inspiring hobbies since 2025.
-            </p>
+            <h2 className="text-lg font-bold">
+            Hobby Hub <br />
+            
+             <span className="text-xs font-normal ">Where creativity finds its home.
+             </span>
+            </h2>
           </aside>
           <nav>
             <h6 className="footer-title">Explore</h6>
