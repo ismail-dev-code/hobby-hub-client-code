@@ -50,7 +50,7 @@ const Register = () => {
   };
 
   return (
-    <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8">
+    <div className="flex items-center justify-center py-2 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md border border-gray-200 shadow-md px-4 py-4 sm:p-8 rounded-xl dark:bg-gray-50 dark:text-gray-800">
         <h1 className="text-2xl text-violet-800 sm:text-xl font-bold text-center">
           <img className="w-42 h-16 mx-auto" src={loginImg} alt="" />
@@ -117,7 +117,7 @@ const Register = () => {
           )}
         </form>
 
-        <p className="text-sm text-center pt-2 text-gray-600">
+        <p className="text-sm text-center text-nowrap pt-2 text-gray-600">
           Already have an account? Please
           <Link
             to={"/login"}

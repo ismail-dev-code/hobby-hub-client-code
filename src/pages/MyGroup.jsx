@@ -61,8 +61,8 @@ const MyGroup = () => {
 
       <table className="table table-zebra w-full border border-base-300 rounded-lg">
         <thead className="bg-base-200 text-base">
-          <tr>
-            <th>Serial No.</th>
+          <tr className="text-center">
+            <th>No.</th>
             <th>Group Name</th>
             <th>Category</th>
             <th>Location</th>
@@ -72,14 +72,14 @@ const MyGroup = () => {
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="text-center">
           {groups.map((group, index) => (
             <tr key={group._id}>
               <td>{index + 1}</td>
-              <td className="font-semibold">{group.name}</td>
+              <td className="font-semibold text-nowrap">{group.name}</td>
               <td>{group.category}</td>
               <td>{group.location}</td>
-              <td>{group.date}</td>
+              <td className="text-nowrap">{group.date}</td>
               <td>{group.members}</td>
               <td>
                 <img
@@ -90,28 +90,43 @@ const MyGroup = () => {
               </td>
 
               <td className="join join-vertical space-y-3 p-2">
-                <Link to={`/details-group/${group._id}`} className=" rounded-full join-item">
+                <Link
+                  to={`/details-group/${group._id}`}
+                  className=" rounded-full join-item"
+                  data-tooltip-id="my-tooltip"
+                  data-tooltip-content={"See More Info"}
+                  data-tooltip-place="right"
+                  data-tooltip-class-name="z-50"
+                >
                   <FaInfoCircle
                     className="text-purple-500 cursor-pointer"
-                    size={25}
+                    size={18}
                   />
                 </Link>
                 <Link
                   to={`/update-group/${group._id}`}
                   className=" rounded-full join-item"
+                  data-tooltip-id="my-tooltip"
+                  data-tooltip-content={"Edit Group"}
+                  data-tooltip-place="right"
+                  data-tooltip-class-name="z-50"
                 >
                   <FaEdit
                     className="text-purple-500 cursor-pointer"
-                    size={25}
+                    size={18}
                   />
                 </Link>
                 <button
                   onClick={() => handleDelete(group._id)}
                   className="rounded-full join-item"
+                  data-tooltip-id="my-tooltip"
+                  data-tooltip-content={"Delete Group"}
+                  data-tooltip-place="right"
+                  data-tooltip-class-name="z-50"
                 >
                   <MdDelete
                     className="text-purple-500 cursor-pointer"
-                    size={25}
+                    size={18}
                   />
                 </button>
               </td>

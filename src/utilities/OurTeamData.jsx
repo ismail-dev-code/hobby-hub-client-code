@@ -7,7 +7,7 @@ export const socialIcons = [
       icon: <FaFacebook />,
     },
     {
-      link: "https://www.facebook.com/m.ismail.hossain24/",
+      link: "https://www.x.com/iamifaisal/",
       icon: <FaTwitter />,
     },
     {
@@ -15,15 +15,15 @@ export const socialIcons = [
       icon: <FaGithub />,
     },
     {
-      link: "https://www.facebook.com/m.ismail.hossain24/",
+      link: "https://ismail-web-developer.netlify.app/",
       icon: <TbWorld />,
     },
   ];
   export const ourTeam = [
     {
-      image: "https://i.ibb.co/zHZTCNpc/fas-removebg-preview.png",
+      image: "https://i.ibb.co/bMDpMCJR/Whats-App-Image-2025-04-13-at-23-38-36-9f93c787.jpg",
       name: "Faisal Haque",
-      position: "CEO",
+      position: "CEO/Co-founder",
       icons: socialIcons,
     },
     {

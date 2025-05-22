@@ -17,7 +17,7 @@ const OurTeam = () => {
         </div>
         <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {ourTeam.map((team) => (
-            <div class="text-center shadow-2xl p-3 rounded-2xl">
+            <div class="text-center hover:scale-105 shadow-2xl p-3 rounded-2xl">
               <img
                 class="mx-auto mb-4 w-36 h-36 rounded-full"
                 src={team.image}
