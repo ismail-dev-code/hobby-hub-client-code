@@ -3,7 +3,8 @@
 Welcome to **HobbyHub**, a creative community platform for hobbyists! This is the **frontend** of the project, built with **React**, **Vite**, **Tailwind CSS**, and **DaisyUI** for blazing-fast performance and beautiful design.
 
 🌐 **Live Site**: [https://hobby-hub-bd.web.app](https://hobby-hub-bd.web.app)  
-📂 **GitHub Repo**: [Frontend on GitHub](https://github.com/Programming-Hero-Web-Course4/b11a10-client-side-ismail-dev-code)
+📂 **GitHub Repo**: [Frontend on GitHub](https://github.com/ismail-dev-code/hobby-hub-client-code)
+📂 **GitHub Repo**: [Backend on GitHub](https://github.com/ismail-dev-code/hobby-hub-server-code)
 
 ---
 
@@ -32,7 +33,7 @@ Welcome to **HobbyHub**, a creative community platform for hobbyists! This is th
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/Programming-Hero-Web-Course4/b11a10-client-side-ismail-dev-code
-   cd b11a10-client-side-ismail-dev-code
+   git clone https://github.com/ismail-dev-code/hobby-hub-client-code
+   cd hobby-hub-client-code
 
 
