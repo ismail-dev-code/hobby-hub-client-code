@@ -7,11 +7,11 @@
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: violet;
+  --color-primary: #002349;
   --color-secondary: teal;
 }
 a.active {
-  @apply text-purple-600
+  @apply text-secondary
     border-b 
 rounded-none;
 }
@@ -19,3 +19,28 @@ rounded-none;
 * {
   font-family: "Manrope", sans-serif;
 }
+@keyframes borderRun {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 360% center;
+  }
+}
+
+.animate-borderRun {
+  background-size: 300% 100%;
+  animation: borderRun 9s linear infinite;
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  padding: 2px;
+  box-sizing: border-box;
+  border-radius: 9999px;
+}
+

@@ -8,18 +8,20 @@ import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const groupData = useLoaderData();
-  const sliceData = groupData.slice(0, 6);
+  const sliceData = groupData.slice(0, 8);
 
   return (
     <>
       <Helmet>
         <title>HobbyHub | Home</title>
       </Helmet>
-      <Slider />
-      <FeaturedGroups groupData={sliceData} />
+     <Slider />
+      <div className="lg:w-10/12 mx-auto">
+        <FeaturedGroups groupData={sliceData} />
       <OurTeam />
       <Total />
       <NewsLetter />
+      </div>
     </>
   );
 };

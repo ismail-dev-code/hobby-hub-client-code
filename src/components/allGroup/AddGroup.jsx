@@ -1,9 +1,9 @@
-import { use } from "react";
+import { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Helmet } from "react-helmet-async";
 const AddGroup = () => {
-  const { user } = use(AuthContext);
+  const { user } = useContext(AuthContext);
 
   const handleAddGroup = (e) => {
     e.preventDefault();
@@ -130,7 +130,8 @@ const AddGroup = () => {
             <label className="label">User Name</label>
             <input
               required
-              value={user?.displayName}
+              defaultValue={user?.displayName}
+
               type="text"
               name="userName"
               className="input w-full"
@@ -141,7 +142,7 @@ const AddGroup = () => {
             <label className="label">User Email</label>
             <input
               required
-              value={user?.email}
+              defaultValue={user?.email}
               type="email"
               name="userEmail"
               className="input w-full"

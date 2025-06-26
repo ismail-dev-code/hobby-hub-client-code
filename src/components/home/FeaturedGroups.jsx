@@ -15,7 +15,7 @@ const FeaturedGroups = ({ groupData }) => {
         Discover a wide range of hobbies — from art and travel to tech and
         wellness. Find your passion and connect with like-minded enthusiasts.
       </p>
-      <div className="grid grid-cols-1 my-8 md:my-16  md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 my-8 md:my-16  md:grid-cols-4 gap-6">
         <Fade delay={50} duration={1000} triggerOnce fraction={0.5}>
           {groupData.map((group) => (
             <GroupCard key={group._id} group={group} />

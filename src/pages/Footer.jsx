@@ -6,8 +6,8 @@ import { CgWebsite } from "react-icons/cg";
 const Footer = () => {
   return (
     <>
-      <div className="bg-base-200">
-        <div className="footer sm:footer-horizontal text-base-content px-6 md:px-10 md:pt-10 pt-10">
+      <div className="bg-primary text-white">
+        <div className="footer sm:footer-horizontal px-6 md:px-10 md:pt-10 pt-10">
           <aside>
             <img className="w-34 h-14" src={footerLogo} alt="" />
             <h2 className="text-lg font-bold">

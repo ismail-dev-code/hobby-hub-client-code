@@ -1,19 +1,19 @@
 import Navbar from "../pages/Navbar";
 import { Outlet } from "react-router";
 import Footer from "../pages/Footer";
+import Slider from "../components/home/Slider";
 
 const HomeLayout = () => {
   return (
     <>
-      <header>
         <Navbar></Navbar>
-      </header>
-      <main className="lg:w-11/12 min-h-[calc(100vh-370px)] lg:mx-auto">
+        
+ 
+      <div>
         <Outlet></Outlet>
-      </main>
-      <footer>
-        <Footer></Footer>
-      </footer>
+      </div>
+
+      <Footer></Footer>
     </>
   );
 };

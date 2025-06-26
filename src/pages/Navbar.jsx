@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import logoNav from "../assets/hobby-logo.png";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
@@ -10,7 +10,7 @@ import { FaMoon, FaSun, FaUserCircle } from "react-icons/fa";
 const MySwal = withReactContent(Swal);
 
 const Navbar = () => {
-  const { user, logOut } = use(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
 
   const [isDark, setIsDark] = useState(() => {
     return localStorage.getItem("theme") === "dark";
@@ -67,7 +67,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar shadow-sm sticky z-50 top-0">
+    <div className="navbar shadow-lg bg-primary text-white sticky z-50 top-0 md:px-6 ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

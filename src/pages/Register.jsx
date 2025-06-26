@@ -1,11 +1,11 @@
-import { use, useState } from "react";
+import { useContext, useState } from "react";
 import loginImg from "../assets/hobby-logo.png";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 const Register = () => {
-  const { createUser, setUser, updateUser } = use(AuthContext);
+  const { createUser, setUser, updateUser } = useContext(AuthContext);
   const [nameError, setNameError] = useState("");
   const navigate = useNavigate();
   const handleRegister = (e) => {

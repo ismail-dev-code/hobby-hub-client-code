@@ -1,6 +1,10 @@
 import { ourTeam } from "../../utilities/OurTeamData";
-import gradientBg from "../../assets/shared/gradient-bg.json";
 import Lottie from "lottie-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow, Pagination, Autoplay } from "swiper/modules"; // ✅ Import Autoplay
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
 
 const OurTeam = () => {
   return (
@@ -18,50 +22,58 @@ const OurTeam = () => {
           </p>
         </div>
 
-        {/* Team Grid with Lottie Background */}
-        <div className="relative">
-          {/* Background Animation */}
-          <Lottie
-            animationData={gradientBg}
-            loop
-            autoplay
-            className="absolute top-0 left-0 w-full h-full z-0 opacity-30"
-          />
-
-          {/* Grid Content */}
-          <div className="relative z-10 grid p-10 gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {ourTeam.map((team, index) => (
-              <div
-                key={index}
-                className="text-center p-3"
-              >
-                <img
-                  className="mx-auto mb-4 w-36 h-36 rounded-full"
-                  src={team.image}
-                  alt={team.name}
-                />
-                <h3 className="mb-1 text-xl font-bold tracking-tight">
-                  {team.name}
-                </h3>
-                <p className="text-sm">{team.position}</p>
-                <ul className="flex justify-center mt-4 space-x-4">
-                  {team.icons.map((icon, i) => (
-                    <li key={i}>
-                      <a
-                        href={icon.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#39569c] hover:text-gray-900 dark:hover:text-white"
-                      >
-                        {icon.icon}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
+        {/* Swiper Carousel */}
+        <Swiper
+          effect={"coverflow"}
+          grabCursor={true}
+          centeredSlides={true}
+          slidesPerView={3}
+          autoplay={{
+            delay: 2000, 
+            disableOnInteraction: true,
+          }}
+          coverflowEffect={{
+            rotate: 0,
+            stretch: 0,
+            depth: 100,
+            modifier: 2.5,
+            slideShadows: true,
+          }}
+          pagination={{ clickable: true }}
+          modules={[EffectCoverflow, Pagination, Autoplay]} 
+          className="mySwiper relative z-10 !pb-10"
+        >
+          {ourTeam.map((team, index) => (
+            <SwiperSlide
+              key={index}
+              className="bg-gray-50 bg-opacity-70 backdrop-blur-md p-6 rounded-lg shadow-xl w-[280px] md:w-[300px]"
+            >
+              <img
+                className="mx-auto mb-4 w-36 h-36 rounded-full object-cover border-4 border-white shadow-md"
+                src={team.image}
+                alt={team.name}
+              />
+              <h3 className="mb-1 text-gray-800 text-xl font-bold tracking-tight">
+                {team.name}
+              </h3>
+              <p className="text-sm text-gray-600">{team.position}</p>
+              <ul className="flex justify-center mt-4 space-x-4">
+                {team.icons.map((icon, i) => (
+                  <li key={i}>
+                    <a
+                      href={icon.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#39569c] hover:text-gray-900 dark:hover:text-white"
+                    >
+                      {icon.icon}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </section>
   );

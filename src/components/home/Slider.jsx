@@ -14,12 +14,12 @@ const sliderData = [
     image: slider1,
     title: "Create Your Favorite Hobbies",
     description:
-      "I love photography, traveling to new places, reading inspiring books, coding creative projects, and enjoying peaceful music in my free time.",
+      "Capture moments, explore new passions, and share your interests with a community that celebrates creativity.",
     buttonText: "Create Hobbies",
   },
   {
     image: slider2,
-    title: "Discover New Adventures",
+    title: "Discover New Creative Adventures",
     description:
       "Travel the world, meet new people, and gather experiences that will last a lifetime. Adventure is calling!",
     buttonText: "Discover Now",
@@ -35,40 +35,50 @@ const sliderData = [
 
 const Slider = () => {
   return (
-    <div className="w-full md:mt-8 mt-6 px-4 sm:px-6 lg:px-8 max-w-screen-xl mx-auto">
+    <div className="w-full">
       <Swiper
         modules={[Pagination, Autoplay]}
-        spaceBetween={20}
         slidesPerView={1}
+        spaceBetween={0}
         pagination={{ clickable: true }}
-        autoplay={{ delay: 4000 }}
+        autoplay={{ delay: 6000 }}
         loop={true}
-        className="rounded-2xl overflow-hidden"
+        className="overflow-hidden"
       >
         {sliderData.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div className="relative w-full h-64 sm:h-80 md:h-96 lg:h-[500px]">
+            <div className="relative w-full h-64 sm:h-80 md:h-[90vh] lg:h-screen">
+              {/* Background image */}
               <img
                 className="w-full h-full object-cover"
                 src={slide.image}
                 alt={`Slide ${index + 1}`}
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-100"></div>
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-100 z-10"></div>
 
-              <div className="absolute bottom-6 sm:bottom-10 md:bottom-16 lg:bottom-28 left-4 sm:left-6 md:left-16 z-10 text-white space-y-1.5 md:space-y-3 max-w-md sm:max-w-lg md:max-w-xl">
-                <h2 className="text-xl sm:text-2xl md:text-4xl font-bold">
+              {/* Slide Content */}
+              <div className="absolute z-20 bottom-8 md:bottom-45 left-4 sm:left-8 md:left-26 max-w-xl text-white space-y-3">
+                <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold leading-14 drop-shadow-md">
                   {slide.title}
                 </h2>
-                <p className="text-xs sm:text-sm md:text-base">
+                <p className="text-sm sm:text-base md:text-lg leading-snug text-gray-200 drop-shadow">
                   {slide.description}
                 </p>
-                <Link
-                  to="/create-group"
-                  className="btn btn-sm sm:btn-md md:btn-lg bg-violet-600 hover:bg-violet-700 text-white rounded-full px-4 py-2 border-none"
-                >
-                  {slide.buttonText}
-                </Link>
+               <Link
+  to="/create-group"
+  className="relative inline-block  bg-primary hover:bg-secondary mt-2 px-6 py-2 text-sm sm:text-base font-semibold text-white rounded-full overflow-hidden group"
+>
+  {/* Running animated border using mask technique */}
+  <span className="absolute inset-0 rounded-full p-[2px] bg-[conic-gradient(from_0deg,_#002349,_teal,_#002349)] animate-borderRun z-0"></span>
+
+  {/* Inner content with same border radius and background */}
+  <span className="relative z-10 block  rounded-full">
+    {slide.buttonText}
+  </span>
+</Link>
+
               </div>
             </div>
           </SwiperSlide>
