@@ -4,9 +4,9 @@ import { Fade } from "react-awesome-reveal";
 const FeaturedGroups = ({ groupData }) => {
   return (
     <div>
-      {" "}
+  
       <Fade delay={50} duration={1000} triggerOnce fraction={0.5}>
-        <h1 className="text-center mt-12 mb-2 text-3xl tracking-tight font-extrabold">
+        <h1 className="text-center mt-4 mb-2 text-2xl tracking-tight font-extrabold">
           Featured Spot
         </h1>
       </Fade>

@@ -35,9 +35,6 @@ Welcome to **HobbyHub**, a creative community platform for hobbyists! This is th
 
 ---
 
-
----
-
 ## 🔧 Installation & Setup
 
 1. **Clone the repository:**

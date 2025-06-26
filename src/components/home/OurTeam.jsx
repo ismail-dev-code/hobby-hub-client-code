@@ -9,10 +9,10 @@ import "swiper/css/pagination";
 const OurTeam = () => {
   return (
     <section>
-      <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
+      <div className="py-8 px-4 mx-auto max-w-screen-xl text-center">
         {/* Heading */}
         <div className="mx-auto mb-8 max-w-screen-sm lg:mb-10">
-          <h2 className="mb-2 text-3xl tracking-tight font-extrabold">
+          <h2 className="mb-2 text-2xl tracking-tight font-extrabold">
             Meet the HobbyHub Team
           </h2>
           <div className="flex-1 h-px w-1/10 mx-auto bg-gray-200 animate-ping"></div>

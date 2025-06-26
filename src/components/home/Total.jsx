@@ -5,8 +5,8 @@ import { GrUserWorker } from "react-icons/gr";
 
 const Total = () => {
   return (
-    <div className="pb-10 mx-5 my-10">
-      <h1 className="text-center text-3xl pb-2 font-bold">
+    <div className="py-8">
+      <h1 className="text-center text-2xl pb-1 font-bold">
         Trusted by Thousands in the Hobby Community
       </h1>
       <p className="text-center text-gray-500 pb-6">

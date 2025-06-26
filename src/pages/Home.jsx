@@ -16,7 +16,7 @@ const Home = () => {
         <title>HobbyHub | Home</title>
       </Helmet>
      <Slider />
-      <div className="lg:w-10/12 mx-auto">
+      <div className="md:px-6 px-4">
         <FeaturedGroups groupData={sliceData} />
       <OurTeam />
       <Total />

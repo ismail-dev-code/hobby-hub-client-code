@@ -6,12 +6,9 @@ import Slider from "../components/home/Slider";
 const HomeLayout = () => {
   return (
     <>
-        <Navbar></Navbar>
-        
- 
-      <div>
-        <Outlet></Outlet>
-      </div>
+      <Navbar></Navbar>
+
+      <Outlet></Outlet>
 
       <Footer></Footer>
     </>

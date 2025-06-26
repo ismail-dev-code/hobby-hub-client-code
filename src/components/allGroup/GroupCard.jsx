@@ -22,12 +22,16 @@ const GroupCard = ({ group }) => {
       {/* Content Below Image */}
       <div className="flex-1 flex flex-col justify-between space-y-1 text-sm text-gray-700">
         <div className="space-y-1">
-          <h2 className="text-base font-semibold text-gray-800 truncate">{name}</h2>
+          <h2 className="text-base font-semibold text-gray-800 truncate">
+            {name}
+          </h2>
           <p className="truncate">
-            <span className="font-medium text-gray-600">Category:</span> {category}
+            <span className="font-medium text-gray-600">Category:</span>{" "}
+            {category}
           </p>
           <p className="truncate">
-            <span className="font-medium text-gray-600">Members:</span> {members}
+            <span className="font-medium text-gray-600">Members:</span>{" "}
+            {members}
           </p>
           <p className="truncate">
             <span className="font-medium text-gray-600">Deadline:</span> {date}

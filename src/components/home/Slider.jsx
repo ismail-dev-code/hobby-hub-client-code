@@ -47,7 +47,7 @@ const Slider = () => {
       >
         {sliderData.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div className="relative w-full h-64 sm:h-80 md:h-[90vh] lg:h-screen">
+            <div className="relative w-full h-64 sm:h-80 md:h-[78vh]">
               {/* Background image */}
               <img
                 className="w-full h-full object-cover"
@@ -59,7 +59,7 @@ const Slider = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-100 z-10"></div>
 
               {/* Slide Content */}
-              <div className="absolute z-20 bottom-8 md:bottom-45 left-4 sm:left-8 md:left-26 max-w-xl text-white space-y-3">
+              <div className="absolute z-20 bottom-8 md:bottom-25 left-4 sm:left-8 md:left-26 max-w-xl text-white space-y-3">
                 <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold leading-14 drop-shadow-md">
                   {slide.title}
                 </h2>
