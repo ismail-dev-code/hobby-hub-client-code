@@ -9,6 +9,7 @@ import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
+import HobbyHubLogo from "../utilities/HobbyHubLogo";
 
 const Login = () => {
   const [error, setError] = useState("");
@@ -55,10 +56,12 @@ const Login = () => {
       </Helmet>
       <div className="flex items-center min-h-screen justify-center  px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-md p-6 border border-gray-200 shadow-md sm:p-6 rounded-xl dark:bg-gray-50 dark:text-gray-800">
-          <h1 className="text-2xl text-violet-800 sm:text-xl font-bold text-center">
-            <img className="w-42 h-16 mx-auto" src={loginImg} alt="" />
-            Login to HobbyHub
-          </h1>
+          <h2 className="text-xl text-violet-800 sm:text-xl whitespace-nowrap font-bold text-center">
+            <Link to={"/"}>
+              <HobbyHubLogo />
+            </Link>{" "}
+            <span className="text-center ml-4 text-primary"> Welcome Back</span>
+          </h2>
 
           <form onSubmit={handleLogIn} className="space-y-4 mb-0">
             <div className="space-y-2 text-sm">

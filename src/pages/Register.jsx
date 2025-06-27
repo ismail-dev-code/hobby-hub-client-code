@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
+import HobbyHubLogo from "../utilities/HobbyHubLogo";
 const Register = () => {
   const { createUser, setUser, updateUser } = useContext(AuthContext);
   const [nameError, setNameError] = useState("");
@@ -57,10 +58,14 @@ const Register = () => {
       </Helmet>
       <div className="flex items-center justify-center py-2 px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-md border border-gray-200 shadow-md px-4 py-4 sm:p-8 rounded-xl dark:bg-gray-50 dark:text-gray-800">
-          <h1 className="text-2xl text-violet-800 sm:text-xl font-bold text-center">
-            <img className="w-42 h-16 mx-auto" src={loginImg} alt="" />
-            Register to HobbyHub
-          </h1>
+          <h2 className="text-xl whitespace-nowrap font-bold text-center">
+            <Link to={"/"}>
+              <HobbyHubLogo />
+            </Link>
+            <span className="ml-2 text-primary">
+              Create Account
+            </span>
+          </h2>
 
           <form onSubmit={handleRegister} className="space-y-4 mb-0">
             <div className="space-y-2 text-sm">

@@ -91,7 +91,7 @@ const GroupDetails = () => {
               ) : (
                 <button
                   onClick={handleJoinGroup}
-                  className="btn bg-violet-500 text-white hover:bg-violet-600"
+                  className="btn bg-primary text-white hover:bg-secondary"
                 >
                   Join Group
                 </button>
