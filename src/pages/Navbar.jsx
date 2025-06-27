@@ -11,7 +11,6 @@ const MySwal = withReactContent(Swal);
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-console.log(user);
   const [isDark, setIsDark] = useState(() => {
     return localStorage.getItem("theme") === "dark";
   });
@@ -33,40 +32,40 @@ console.log(user);
   const toggleTheme = () => setIsDark(!isDark);
 
   const handleLogOut = () => {
-  MySwal.fire({
-    title: "Are you sure?",
-    text: "Do you really want to log out?",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#bb0f1e", 
-    cancelButtonColor: "#002349",
-    confirmButtonText: "Yes, log out",
-    cancelButtonText: "Cancel",
-    background: "#f8f8f8",
-    backdrop: `
+    MySwal.fire({
+      title: "Are you sure?",
+      text: "Do you really want to log out?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#bb0f1e",
+      cancelButtonColor: "#002349",
+      confirmButtonText: "Yes, log out",
+      cancelButtonText: "Cancel",
+      background: "#f8f8f8",
+      backdrop: `
       rgba(0, 0, 0, 0.6)
       left top
       no-repeat
     `,
-  }).then((result) => {
-    if (result.isConfirmed) {
-      logOut()
-        .then(() => {
-          MySwal.fire({
-            title: "Logged Out",
-            text: "You have been logged out successfully.",
-            icon: "success",
-            timer: 2000,
-            showConfirmButton: false,
-            backdrop: `rgba(0, 0, 0, 0.6)`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logOut()
+          .then(() => {
+            MySwal.fire({
+              title: "Logged Out",
+              text: "You have been logged out successfully.",
+              icon: "success",
+              timer: 2000,
+              showConfirmButton: false,
+              backdrop: `rgba(0, 0, 0, 0.6)`,
+            });
+          })
+          .catch((error) => {
+            toast.error(error.message);
           });
-        })
-        .catch((error) => {
-          toast.error(error.message);
-        });
-    }
-  });
-};
+      }
+    });
+  };
 
   const links = (
     <>
@@ -79,11 +78,21 @@ console.log(user);
           All Groups
         </NavLink>
       </li>
+      {user && (
+        <>
+          <li>
+            <NavLink to={"/create-group"}>Create Group</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/my-group"}>My Groups</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/dashboard"}>Dashboard</NavLink>
+          </li>
+        </>
+      )}
       <li>
-        <NavLink to={"/create-group"}>Create Group</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/my-group"}>My Groups</NavLink>
+        <NavLink to={"/about-us"}>About Us</NavLink>
       </li>
     </>
   );
@@ -122,77 +131,76 @@ console.log(user);
         <ul className="menu space-x-5 menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-  {user ? (
-    <div className="dropdown dropdown-end">
-      <div
-        tabIndex={0}
-        role="button"
-        className="btn btn-sm mr-3 btn-circle avatar"
-      >
-        <div
-          data-tooltip-id="my-tooltip"
-          data-tooltip-content={user?.displayName}
-          className="w-10 btn-sm rounded-full ring"
+        {user ? (
+          <div className="dropdown dropdown-end">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-sm mr-3 btn-circle avatar"
+            >
+              <div
+                data-tooltip-id="my-tooltip"
+                data-tooltip-content={user?.displayName}
+                className="w-10 btn-sm rounded-full ring"
+              >
+                {user?.photoURL ? (
+                  <img
+                    className="w-full h-full"
+                    src={user?.photoURL}
+                    alt="user profile"
+                  />
+                ) : (
+                  <FaUserCircle className="w-full h-full" />
+                )}
+              </div>
+            </div>
+            <ul
+              tabIndex={0}
+              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+            >
+              <li className="text-center font-semibold py-1 text-gray-800">
+                {user?.displayName || "User"}
+              </li>
+              <li>
+                <button
+                  onClick={handleLogOut}
+                  className="btn btn-sm bg-error text-white hover:bg-red-600"
+                >
+                  Logout
+                </button>
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <>
+            <Link
+              to={"/login"}
+              className="btn btn-sm bg-primary hover:bg-secondary text-white border-none font-semibold mr-3"
+            >
+              Log in
+            </Link>
+            <Link
+              to={"/register"}
+              className="btn btn-sm bg-primary hover:bg-secondary mr-3 text-white border-none font-semibold"
+            >
+              Register
+            </Link>
+          </>
+        )}
+
+        {/* Theme Toggle Button */}
+        <button
+          onClick={toggleTheme}
+          className="btn btn-circle border btn-sm transition-all duration-300"
+          title="Toggle Theme"
         >
-          {user?.photoURL ? (
-            <img
-              className="w-full h-full"
-              src={user?.photoURL}
-              alt="user profile"
-            />
+          {isDark ? (
+            <FaSun className="text-yellow-400 transition-transform duration-300 scale-110" />
           ) : (
-            <FaUserCircle className="w-full h-full" />
+            <FaMoon className="transition-transform duration-300 scale-110" />
           )}
-        </div>
+        </button>
       </div>
-      <ul
-        tabIndex={0}
-        className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-      >
-        <li className="text-center font-semibold py-1 text-gray-800">
-          {user?.displayName || "User"}
-        </li>
-        <li>
-          <button
-            onClick={handleLogOut}
-            className="btn btn-sm bg-error text-white hover:bg-red-600"
-          >
-            Logout
-          </button>
-        </li>
-      </ul>
-    </div>
-  ) : (
-    <>
-      <Link
-        to={"/login"}
-        className="btn btn-sm bg-primary hover:bg-secondary text-white border-none font-semibold mr-3"
-      >
-        Log in
-      </Link>
-      <Link
-        to={"/register"}
-        className="btn btn-sm bg-primary hover:bg-secondary mr-3 text-white border-none font-semibold"
-      >
-        Register
-      </Link>
-    </>
-  )}
-
-  {/* Theme Toggle Button */}
-  <button
-    onClick={toggleTheme}
-    className="btn btn-circle border btn-sm transition-all duration-300"
-    title="Toggle Theme"
-  >
-    {isDark ? (
-      <FaSun className="text-yellow-400 transition-transform duration-300 scale-110" />
-    ) : (
-      <FaMoon className="transition-transform duration-300 scale-110" />
-    )}
-  </button>
-</div>
-
     </div>
   );
 };

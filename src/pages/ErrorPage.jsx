@@ -8,7 +8,7 @@ const ErrorPage = () => {
           <h2 className="mb-6 font-extrabold text-7xl sm:text-8xl md:text-9xl text-red-300">
             <span className="sr-only">Error</span>404
           </h2>
-          <p className="text-xl sm:text-2xl md:text-3xl font-semibold">
+          <p className="text-xl text-gray-500 sm:text-2xl md:text-3xl font-semibold">
             Sorry, we couldn't find this page.
           </p>
           <p className="mt-4 mb-8 text-sm sm:text-base text-gray-600">
@@ -17,7 +17,7 @@ const ErrorPage = () => {
           </p>
           <Link
             to={"/"}
-            className="inline-block px-6 py-3 text-sm sm:text-base font-semibold rounded bg-violet-600 text-white hover:bg-violet-700 transition"
+            className="inline-block px-6 py-3 text-sm sm:text-base font-semibold rounded bg-primary text-white hover:bg-secondary transition"
           >
             Back to HobbyHub
           </Link>

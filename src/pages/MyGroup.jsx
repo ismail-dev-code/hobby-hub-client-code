@@ -17,7 +17,7 @@ const MyGroup = () => {
       if (user?.email && user?.accessToken) {
         try {
           const res = await fetch(
-            `https://hobby-hub-server-pied.vercel.app/my-groups?email=${user.email}`,
+            `http://localhost:3000/my-groups?email=${user.email}`,
             {
               headers: {
                 Authorization: `Bearer ${user.accessToken}`,
@@ -36,6 +36,7 @@ const MyGroup = () => {
 
     fetchGroups();
   }, [user]);
+  console.log(groups);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -48,7 +49,7 @@ const MyGroup = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://hobby-hub-server-pied.vercel.app/all-group/${id}`, {
+        fetch(`http://localhost:3000/all-group/${id}`, {
           method: "DELETE",
           headers: {
             Authorization: `Bearer ${user.accessToken}`,
@@ -71,13 +72,13 @@ const MyGroup = () => {
 
   if (groups.length === 0)
     return (
-      <div className="w-6/8 mx-auto text-center px-5 mt-12 md:mt-24">
+      <div className="w-6/8 mx-auto text-center px-5 mt-12 md:my-24">
         <p className="pb-4">
           You haven’t created any groups yet. Start by creating one to organize your hobbies!
         </p>
         <Link
           to="/create-group"
-          className="btn btn-sm sm:btn-md md:btn-lg bg-violet-600 hover:bg-violet-700 text-white rounded-full px-4 py-2 border-none"
+          className="btn btn-sm bg-primary hover:bg-secondary text-white rounded-full px-4 py-2 border-none"
         >
           Create Group
         </Link>
@@ -106,7 +107,7 @@ const MyGroup = () => {
             </tr>
           </thead>
           <tbody className="text-center">
-            {groups.map((group, index) => (
+            {groups?.map((group, index) => (
               <tr key={group._id}>
                 <td>{index + 1}</td>
                 <td className="font-semibold text-nowrap">{group.name}</td>
@@ -127,6 +128,7 @@ const MyGroup = () => {
                     className="rounded-full join-item"
                     data-tooltip-id="my-tooltip"
                     data-tooltip-content="See More Info"
+                    data-tooltip-place="right"
                   >
                     <FaInfoCircle
                       className="text-purple-500 cursor-pointer"
@@ -135,9 +137,10 @@ const MyGroup = () => {
                   </Link>
                   <Link
                     to={`/update-group/${group._id}`}
-                    className="rounded-full join-item"
+                    className="rounded-full join-item z-[9999]"
                     data-tooltip-id="my-tooltip"
                     data-tooltip-content="Edit Group"
+                     data-tooltip-place="right"
                   >
                     <FaEdit
                       className="text-purple-500 cursor-pointer"
@@ -149,6 +152,7 @@ const MyGroup = () => {
                     className="rounded-full join-item"
                     data-tooltip-id="my-tooltip"
                     data-tooltip-content="Delete Group"
+                    data-tooltip-place="right"
                   >
                     <MdDelete
                       className="text-purple-500 cursor-pointer"

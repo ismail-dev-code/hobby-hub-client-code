@@ -11,7 +11,7 @@ const GroupDetails = () => {
   const [joined, setJoined] = useState(false);
 
   useEffect(() => {
-    fetch(`https://hobby-hub-server-pied.vercel.app/all-group/${id}`)
+    fetch(`http://localhost:3000/all-group/${id}`)
       .then((res) => res.json())
       .then((data) => setGroup(data));
   }, [id]);

@@ -34,7 +34,7 @@ const GroupCard = ({ group }) => {
             {members}
           </p>
           <p className="truncate">
-            <span className="font-medium text-gray-600">Deadline:</span> {date}
+            <span className="font-medium text-gray-600">End Date:</span> {date}
           </p>
         </div>
 

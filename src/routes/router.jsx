@@ -11,7 +11,16 @@ import PrivateRoute from "../provider/PrivateRoute";
 import Loading from "../pages/Loading";
 import UpdateGroup from "../components/myGroup/UpdateGroup";
 import GroupDetails from "../components/allGroup/GroupDetails";
-
+import AboutUs from "../pages/AboutUs";
+import DashboardLayout from "../layouts/DashboardLayout";
+import Overview from "../pages/Overview";
+import ContactUs from "../pages/ContactUs";
+import Blogs from "../pages/Blogs";
+import Career from "../pages/Career";
+import HelpCenter from "../pages/HelpCenter";
+import TermsAndConditions from "../pages/TermsAndConditions";
+import PrivacyPolicy from "../pages/PrivacyPolicy";
+import CommunityGuidelines from "../pages/CommunityGuidelines";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -20,15 +29,13 @@ export const router = createBrowserRouter([
       {
         index: true,
         hydrateFallbackElement: <Loading />,
-        loader: () =>
-          fetch("https://hobby-hub-server-pied.vercel.app/all-group"),
+        loader: () => fetch("http://localhost:3000/all-group"),
         element: <Home></Home>,
       },
       {
         path: "/all-groups",
         hydrateFallbackElement: <Loading />,
-        loader: () =>
-          fetch("https://hobby-hub-server-pied.vercel.app/all-group"),
+        loader: () => fetch("http://localhost:3000/all-group"),
         element: <AllGroups></AllGroups>,
       },
       {
@@ -63,8 +70,41 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: "/about-us",
+        element: <AboutUs />,
+      },
+      {
+        path: "/contact",
+        element: <ContactUs />,
+      },
+      {
+        path: "/blogs",
+        Component: Blogs,
+      },
+      {
+        path: "/careers",
+        Component: Career,
+      },
+      {
+        path: "/help",
+        Component: HelpCenter,
+      },
+      {
+        path: "/terms",
+        Component: TermsAndConditions,
+      },
+      {
+        path: "/privacy",
+        Component: PrivacyPolicy,
+      },
+      {
+        path: "/community",
+        Component: CommunityGuidelines,
+      },
     ],
   },
+
   {
     path: "/login",
     element: <Login></Login>,
@@ -76,5 +116,23 @@ export const router = createBrowserRouter([
   {
     path: "*",
     element: <ErrorPage></ErrorPage>,
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardLayout />,
+    children: [
+      {
+        index: true,
+        element: <Overview />,
+      },
+      {
+        path: "my-group",
+        Component: MyGroup,
+      },
+      {
+        path: "new-group",
+        Component: NewGroup,
+      },
+    ],
   },
 ]);

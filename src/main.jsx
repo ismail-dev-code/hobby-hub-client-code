@@ -11,8 +11,8 @@ import { HelmetProvider } from "react-helmet-async";
 createRoot(document.getElementById("root")).render(
   <HelmetProvider>
     <AuthProvider>
-      <ToastContainer position="top-center" />
-      <Tooltip id="my-tooltip" />
+      <ToastContainer position="top-right" />
+      <Tooltip id="my-tooltip" className="z-[9999]" />
       <RouterProvider router={router} />
     </AuthProvider>
   </HelmetProvider>

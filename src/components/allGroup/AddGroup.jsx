@@ -11,7 +11,7 @@ const AddGroup = () => {
     const formData = new FormData(form);
     const newGroup = Object.fromEntries(formData.entries());
 
-    fetch("https://hobby-hub-server-pied.vercel.app/create-group", {
+    fetch("http://localhost:3000/create-group", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -129,9 +129,8 @@ const AddGroup = () => {
           <fieldset className="fieldset my-6 bg-base-200 border-base-300 rounded-box border p-4">
             <label className="label">User Name</label>
             <input
-              required
+              readOnly
               defaultValue={user?.displayName}
-
               type="text"
               name="userName"
               className="input w-full"
@@ -141,7 +140,7 @@ const AddGroup = () => {
           <fieldset className="fieldset my-6 bg-base-200 border-base-300 rounded-box border p-4">
             <label className="label">User Email</label>
             <input
-              required
+              readOnly
               defaultValue={user?.email}
               type="email"
               name="userEmail"
