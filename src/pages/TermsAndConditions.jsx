@@ -34,18 +34,18 @@ const TermsAndConditions = () => {
       >
         <motion.h2
           variants={fadeIn}
-          className="text-3xl font-bold text-primary mb-6 text-center"
+          className="text-2xl font-bold text-primary mb-6 text-center"
         >
           Terms & Conditions
         </motion.h2>
 
         <motion.div
-          className="bg-white rounded-lg shadow-md p-6 space-y-5 text-gray-700 leading-relaxed"
+          className=" rounded-lg p-6 space-y-5 text-gray-700 leading-relaxed"
           variants={fadeIn}
           custom={0.2}
         >
           <p>
-            Welcome to <strong>Hobby Hub</strong>. By accessing or using our platform, you agree to the following terms and conditions. Please read them carefully.
+            By accessing or using our platform, you agree to the following terms and conditions. Please read them carefully.
           </p>
 
           <h3 className="text-xl font-semibold text-primary mt-4">1. Acceptance of Terms</h3>

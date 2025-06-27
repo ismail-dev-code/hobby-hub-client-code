@@ -59,8 +59,8 @@ const Slider = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-100 z-10"></div>
 
               {/* Slide Content */}
-              <div className="absolute z-20 bottom-8 md:bottom-25 left-4 sm:left-8 md:left-26 max-w-xl text-white space-y-3">
-                <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold leading-14 drop-shadow-md">
+              <div className="absolute z-20 bottom-6 md:bottom-25 left-8 md:left-26 max-w-xl text-white pr-4 md:space-y-2">
+                <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold drop-shadow-md md:leading-14">
                   {slide.title}
                 </h2>
                 <p className="text-sm sm:text-base md:text-lg leading-snug text-gray-200 drop-shadow">

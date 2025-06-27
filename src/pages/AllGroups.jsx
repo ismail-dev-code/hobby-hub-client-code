@@ -2,15 +2,18 @@ import { useLoaderData } from "react-router";
 import GroupCard from "../components/allGroup/GroupCard";
 import { Fade } from "react-awesome-reveal";
 import { Helmet } from "react-helmet-async";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 
 const AllGroups = () => {
   const groupData = useLoaderData();
+   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   const [sortOrder, setSortOrder] = useState("desc");
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  // Unique category list
+ 
   const categoryOptions = useMemo(() => {
     const categories = groupData.map((g) => g.category);
     return ["all", ...new Set(categories)];
@@ -34,7 +37,7 @@ const AllGroups = () => {
   return (
     <>
       <Helmet>
-        <title>HobbyHub | All Group</title>
+        <title>All Group | HobbyHub</title>
       </Helmet>
       <div className="md:px-16 px-8">
         <h1 className="text-center text-3xl mt-10 font-bold">All Groups</h1>

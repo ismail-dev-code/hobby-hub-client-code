@@ -5,10 +5,14 @@ import Total from "../components/home/Total";
 import NewsLetter from "../components/home/NewsLetter";
 import { useLoaderData } from "react-router";
 import { Helmet } from "react-helmet-async";
+import { useEffect } from "react";
 
 const Home = () => {
   const groupData = useLoaderData();
   const sliceData = groupData.slice(0, 8);
+   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <>
@@ -16,7 +20,7 @@ const Home = () => {
         <title>HobbyHub | Home</title>
       </Helmet>
      <Slider />
-      <div className="md:px-6 px-4">
+      <div className="w-10/12 mx-auto">
         <FeaturedGroups groupData={sliceData} />
       <OurTeam />
       <Total />

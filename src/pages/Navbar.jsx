@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
-import logoNav from "../assets/hobby-logo.png";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { FaMoon, FaSun, FaUserCircle } from "react-icons/fa";
+import HobbyHubLogo from "../utilities/HobbyHubLogo";
 
 const MySwal = withReactContent(Swal);
 
@@ -98,7 +98,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar shadow-lg bg-primary text-white sticky z-50 top-0 md:px-6 ">
+    <div className="navbar shadow-lg bg-primary text-white sticky z-50 top-0 md:px-10 ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -125,7 +125,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <img className="w-34 h-14 hidden md:block" src={logoNav} alt="" />
+      <HobbyHubLogo/>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu space-x-5 menu-horizontal px-1">{links}</ul>
@@ -181,7 +181,7 @@ const Navbar = () => {
             </Link>
             <Link
               to={"/register"}
-              className="btn btn-sm bg-primary hover:bg-secondary mr-3 text-white border-none font-semibold"
+              className="btn btn-sm bg-primary md:flex hidden hover:bg-secondary mr-3 text-white border-none font-semibold"
             >
               Register
             </Link>

@@ -1,19 +1,19 @@
-import footerLogo from "../assets/hobby-logo.png";
+
 import { Link } from "react-router";
 import { FaFacebook, FaGithub, FaInstagram } from "react-icons/fa";
 import { CgWebsite } from "react-icons/cg";
+import HobbyHubLogo from "../utilities/HobbyHubLogo";
 
 const Footer = () => {
   return (
     <div className="bg-primary text-white">
       <div className="footer sm:footer-horizontal px-6 md:px-10 md:pt-10 pt-10">
         <aside>
-          <img className="w-34 h-14" src={footerLogo} alt="Hobby Hub Logo" />
+         <HobbyHubLogo/>
           <h2 className="text-lg font-bold">
-            Hobby Hub <br />
-            <span className="text-xs font-normal">
-              Where creativity finds its home.
-            </span>
+        <p className="text-xs font-normal">
+             Where creativity finds its home <br /> join a vibrant community of hobbyists sharing <br /> inspiration, skills, and passion every day.
+            </p>
           </h2>
         </aside>
 

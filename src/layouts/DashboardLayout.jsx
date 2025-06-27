@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { AuthContext } from "../provider/AuthProvider";
+import HobbyHubLogo from "../utilities/HobbyHubLogo";
 
 const DashboardLayout = () => {
   const { user, updateUser } = useContext(AuthContext);
@@ -48,13 +49,15 @@ const DashboardLayout = () => {
       <div className="drawer-side">
         <label htmlFor="my-drawer" className="drawer-overlay"></label>
         <ul className="menu p-4 w-64 min-h-full bg-base-200 space-y-2 text-base-content">
-          <Link to="/">
-            <img className="w-34 h-14 hidden md:block" src={logoHobby} alt="" />
+         <li>
+           <Link to="/">
+           <HobbyHubLogo/>
           </Link>
+         </li>
           <li>
-            <NavLink to="/dashboard" className="flex items-center gap-2">
+            <Link to="/dashboard" className="flex items-center gap-2">
               <FaHome /> Overview
-            </NavLink>
+            </Link>
           </li>
           <li>
             <NavLink
@@ -74,7 +77,7 @@ const DashboardLayout = () => {
           </li>
 
           <li>
-            <NavLink
+            <Link
               onClick={() =>
                 Swal.fire({
                   title: "Edit Profile",
@@ -141,7 +144,7 @@ const DashboardLayout = () => {
               }
             >
               <FaUserEdit /> Edit Profile
-            </NavLink>
+            </Link>
           </li>
         </ul>
       </div>

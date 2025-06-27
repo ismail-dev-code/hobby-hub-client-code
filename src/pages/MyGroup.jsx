@@ -11,6 +11,9 @@ const MyGroup = () => {
   const { user } = useContext(AuthContext);
   const [groups, setGroups] = useState([]);
   const [loading, setLoading] = useState(true);
+   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   useEffect(() => {
     const fetchGroups = async () => {

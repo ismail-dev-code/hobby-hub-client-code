@@ -80,7 +80,7 @@ const HelpCenter = () => {
       >
         <motion.h2
           variants={fadeIn}
-          className="text-3xl font-bold text-primary mb-8 text-center"
+          className="text-2xl font-bold text-primary mb-8 text-center"
         >
           Help Center
         </motion.h2>
@@ -104,7 +104,7 @@ const HelpCenter = () => {
             filteredFaqs.map((faq, idx) => (
               <motion.div
                 key={idx}
-                className="bg-white p-6 rounded-lg shadow-md cursor-pointer"
+                className=" p-6 rounded-lg shadow-md cursor-pointer"
                 variants={fadeIn}
                 custom={0.2 + idx * 0.1}
                 initial={{ opacity: 0, y: 20 }}

@@ -27,9 +27,8 @@ const OurTeam = () => {
           effect={"coverflow"}
           grabCursor={true}
           centeredSlides={true}
-          slidesPerView={3}
           autoplay={{
-            delay: 2000, 
+            delay: 2000,
             disableOnInteraction: true,
           }}
           coverflowEffect={{
@@ -40,8 +39,22 @@ const OurTeam = () => {
             slideShadows: true,
           }}
           pagination={{ clickable: true }}
-          modules={[EffectCoverflow, Pagination, Autoplay]} 
+          modules={[EffectCoverflow, Pagination, Autoplay]}
           className="mySwiper relative z-10 !pb-10"
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+            },
+            640: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+          }}
         >
           {ourTeam.map((team, index) => (
             <SwiperSlide
