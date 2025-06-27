@@ -13,7 +13,7 @@ const Overview = () => {
     let myGroupsFetched = false;
     let totalGroupsFetched = false;
     // Total groups (public)
-    fetch("http://localhost:3000/all-group")
+    fetch("https://hobby-hub-server-pied.vercel.app/all-group")
       .then((res) => res.json())
       .then((data) => {
         setTotalGroups(data.length);
@@ -22,7 +22,7 @@ const Overview = () => {
       });
 
     if (user?.email && user?.accessToken) {
-      fetch(`http://localhost:3000/my-groups?email=${user.email}`, {
+      fetch(`https://hobby-hub-server-pied.vercel.app/my-groups?email=${user.email}`, {
         headers: {
           Authorization: `Bearer ${user?.accessToken}`,
         },

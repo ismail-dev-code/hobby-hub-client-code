@@ -29,13 +29,13 @@ export const router = createBrowserRouter([
       {
         index: true,
         hydrateFallbackElement: <Loading />,
-        loader: () => fetch("http://localhost:3000/all-group"),
+        loader: () => fetch("https://hobby-hub-server-pied.vercel.app/all-group"),
         element: <Home></Home>,
       },
       {
         path: "/all-groups",
         hydrateFallbackElement: <Loading />,
-        loader: () => fetch("http://localhost:3000/all-group"),
+        loader: () => fetch("https://hobby-hub-server-pied.vercel.app/all-group"),
         element: <AllGroups></AllGroups>,
       },
       {

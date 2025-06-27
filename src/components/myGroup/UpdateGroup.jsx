@@ -10,7 +10,7 @@ const UpdateGroup = () => {
   const [group, setGroup] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/all-group/${id}`)
+    fetch(`https://hobby-hub-server-pied.vercel.app/all-group/${id}`)
       .then((res) => res.json())
       .then((data) => setGroup(data));
   }, [id]);
@@ -21,7 +21,7 @@ const UpdateGroup = () => {
     const formData = new FormData(form);
     const updatedGroup = Object.fromEntries(formData.entries());
 
-    fetch(`http://localhost:3000/all-group/${id}`, {
+    fetch(`https://hobby-hub-server-pied.vercel.app/all-group/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

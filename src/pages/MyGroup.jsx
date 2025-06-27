@@ -20,7 +20,7 @@ const MyGroup = () => {
       if (user?.email && user?.accessToken) {
         try {
           const res = await fetch(
-            `http://localhost:3000/my-groups?email=${user.email}`,
+            `https://hobby-hub-server-pied.vercel.app/my-groups?email=${user.email}`,
             {
               headers: {
                 Authorization: `Bearer ${user.accessToken}`,
@@ -52,7 +52,7 @@ const MyGroup = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/all-group/${id}`, {
+        fetch(`https://hobby-hub-server-pied.vercel.app/all-group/${id}`, {
           method: "DELETE",
           headers: {
             Authorization: `Bearer ${user.accessToken}`,
@@ -75,9 +75,9 @@ const MyGroup = () => {
 
   if (groups.length === 0)
     return (
-      <div className="w-6/8 mx-auto text-center px-5 mt-12 md:my-24">
-        <p className="pb-4">
-          You haven’t created any groups yet. Start by creating one to organize your hobbies!
+      <div className="w-6/8 mx-auto text-center px-5 mt-12 my-12 md:my-24">
+        <p className="pb-1">
+          You haven’t created any groups yet.
         </p>
         <Link
           to="/create-group"

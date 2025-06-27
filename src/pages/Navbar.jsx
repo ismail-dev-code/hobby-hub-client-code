@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { FaMoon, FaSun, FaUserCircle } from "react-icons/fa";
 import HobbyHubLogo from "../utilities/HobbyHubLogo";
+import { FaHome, FaUsers, FaPlusCircle, FaUserFriends, FaTachometerAlt, FaInfoCircle } from "react-icons/fa";
 
 const MySwal = withReactContent(Swal);
 
@@ -67,41 +68,51 @@ const Navbar = () => {
     });
   };
 
-  const links = (
-    <>
-      {" "}
-      <li>
-        <NavLink to={"/"}>Home</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/all-groups"} className="text-nowrap">
-          All Groups
-        </NavLink>
-      </li>
-      {user && (
-        <>
-          <li>
-            <NavLink to={"/create-group"}>Create Group</NavLink>
-          </li>
-          <li>
-            <NavLink to={"/my-group"}>My Groups</NavLink>
-          </li>
-          <li>
-            <NavLink to={"/dashboard"}>Dashboard</NavLink>
-          </li>
-        </>
-      )}
-      <li>
-        <NavLink to={"/about-us"}>About Us</NavLink>
-      </li>
-    </>
-  );
+ const links = (
+  <>
+    <li>
+      <NavLink to={"/"}>
+        <FaHome className="inline" /> Home
+      </NavLink>
+    </li>
+    <li>
+      <NavLink to={"/all-groups"} className="text-nowrap">
+        <FaUsers className="inline" /> All Groups
+      </NavLink>
+    </li>
+    {user && (
+      <>
+        <li>
+          <NavLink to={"/create-group"}>
+            <FaPlusCircle className="inline" /> Create Group
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to={"/my-group"}>
+            <FaUserFriends className="inline" /> My Groups
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to={"/dashboard"}>
+            <FaTachometerAlt className="inline" /> Dashboard
+          </NavLink>
+        </li>
+      </>
+    )}
+    <li>
+      <NavLink to={"/about-us"}>
+        <FaInfoCircle className="inline" /> About Us
+      </NavLink>
+    </li>
+  </>
+);
+
 
   return (
     <div className="navbar shadow-lg bg-primary text-white sticky z-50 top-0 md:px-10 ">
       <div className="navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+        <div className="dropdown text-primary">
+          <div tabIndex={0} role="button" className="btn btn-ghost  text-secondary lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
